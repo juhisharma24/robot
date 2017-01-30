@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>
+  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> <title> ROBOT </title>
+<style>
+div{
+position :relative;
+left:200px;
+
+}
+.topleft{
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 120px;
+  color:green;
+  transform: scaleX(-1) rotate(200deg);
+  position: relative;
+  left: 0px;
+  top:80px;
+
+}
+.topright{
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 120px;
+  color:green;
+  transform: scaleX(-1) rotate(160deg);
+  position: relative;
+  left: 70px;
+  top:335px;
+}
+@keyframes blink {
+  50% {
+    background: radial-gradient(circle, red 5%, transparent 30%), green;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    background: radial-gradient(circle, red 5%, transparent 30%), green;
+  }
+}
+@-moz-keyframes blink {
+  50% {
+    background: radial-gradient(circle, red 5%, transparent 30%), green;
+  }
+}
+.laser {
+  animation: blink .5s infinite;
+  -webkit-animation: blink .5s infinite;
+  -moz-animation: blink .5s infinite;
+}
+.head{
+background: radial-gradient(circle, white 5%,transparent 30%), green;
+background: -moz-radial-gradient(circle, white 5%,transparent 30%), green;
+background: -webkit-radial-gradient(circle, white 5%,transparent 30%), green;
+background-size: 90px,100px;
+background-repeat: repeat-x;
+height:100px;
+width :180px;
+border-top-right-radius: 100px;
+border-top-left-radius: 100px;
+border-bottom: 10px solid white;
+position: relative;
+left :200px;
+}
+.part{
+  height: 180px;
+  width: 180px;
+  background: green;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+
+}
+.first{
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 250px;
+  color:green;
+  transform: scaleY(-1);
+  position: relative;
+  left: 20px;
+  top:-200px;
+  z-index: -1;
+
+}
+.second{
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 250px;
+  color:green;
+  transform: scaleY(-1);
+  position: relative;
+  left: 100px;
+  top:-590px;
+  z-index: -1;
+}
+.left{
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 250px;
+  color:green;
+  transform: scaleY(-1) rotate(40deg);
+  position: relative;
+  left:140px;
+  top: -170px;
+  z-index: -1;
+
+}
+.right{
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 250px;
+  color:green;
+  transform: rotate(220deg);
+  position: relative;
+  top: -557px;
+  left: -140px;
+  z-index: -1;
+
+}
+
+
+</style>
+</head>
+<body>
+<div class="robot">
+  <div class="antena">
+    <div class="topleft">i</div>
+    <div class="topright">i</div>
+  </div>
+<div class="head"></div>
+<div class="part">
+<div class="left">l</div>
+<div class="right">l</div>
+</div>
+<div class="foot">
+<div class="first">l</div>
+<div class="second">l</div></div>
+</div>
+<button class="flash">laser eyes on/off</button>
+<button class="color">change color!</button>
+<script>
+$(".flash").click(function() {
+  $(".head").toggleClass('laser');
+});
+
+$(".color").click(function() {
+  var red = Math.floor(Math.random() * 255);
+  var green = Math.floor(Math.random() * 255);
+  var blue = Math.floor(Math.random() * 255);
+var randomRGBA='rgba('+red+','+green+','+blue+',1)';
+$("body").css("background",randomRGBA);
+});
+</script>
+
+</body>
